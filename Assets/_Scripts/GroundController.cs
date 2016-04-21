@@ -5,12 +5,12 @@ public class GroundController : MonoBehaviour
 {
 	public GameObject buildingPrefab;
 
-	void Start ()
+	void Awake ()
 	{
-		for (int x = 0; x < Constants.GRID_SIZE; x++) {
-			for (int z = 0; z < Constants.GRID_SIZE; z++) {
+		for (int x = 0; x < Constants.GRID_SIZE; x += Constants.SPACING) {
+			for (int z = 0; z < Constants.GRID_SIZE; z += Constants.SPACING) {
 				float height = (float)Random.Range (Constants.MIN_HEIGHT, Constants.MAX_HEIGHT);
-				DrawBuildings (x * Constants.SPACING, z * Constants.SPACING, height);
+				DrawBuildings (x, z, height);
 			}
 		}
 	}
@@ -27,7 +27,7 @@ public class GroundController : MonoBehaviour
 	void SpawnBuilding (int x, int z, float height)
 	{
 		Vector3 pos = new Vector3 (x, .5f * height, z);
-		Vector3 scale = new Vector3 (.4f * Constants.SPACING, height, .4f * Constants.SPACING);
+		Vector3 scale = new Vector3 (.5f * Constants.SPACING, height, .5f * Constants.SPACING);
 		GameObject clone = Instantiate (buildingPrefab);
 		clone.transform.position = pos;
 		clone.transform.localScale = scale;
