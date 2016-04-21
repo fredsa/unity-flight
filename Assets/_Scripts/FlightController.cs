@@ -8,13 +8,12 @@ public class FlightController : MonoBehaviour
 	public Transform steeringWheel;
 	public GameObject ground;
 
-	Vector2 mainTextureScale;
-
-	void Start() {
+	void Start ()
+	{
+		transform.position = new Vector3 (0f, 1.3f * Constants.MAX_HEIGHT, 0f);
 		if (steeringWheel == null) {
 			steeringWheel = Camera.main.transform;
 		}
-		mainTextureScale = ground.GetComponent<MeshRenderer> ().material.mainTextureScale;
 	}
 
 	void Update ()
@@ -22,8 +21,8 @@ public class FlightController : MonoBehaviour
 		Vector3 direction = steeringWheel.forward;
 		direction.y = 0f;
 		Vector3 pos = transform.position + direction * speed;
-		pos.x %= mainTextureScale.x;
-		pos.z %= mainTextureScale.y;
+		pos.x %= Constants.GRID_SIZE;
+		pos.z %= Constants.GRID_SIZE;
 		transform.position = pos;
 	}
 }

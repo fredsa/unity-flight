@@ -157,6 +157,7 @@ GameObject:
   - 33: {fileID: 35836709}
   - 64: {fileID: 35836708}
   - 23: {fileID: 35836707}
+  - 114: {fileID: 35836711}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
@@ -221,6 +222,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!114 &35836711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 35836706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65185c6cfdd3e764aa296260614ee775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildingPrefab: {fileID: 110902, guid: 5119e4d13e6d81545a6d0f1fd090b0fb, type: 2}
 --- !u!1 &609459888
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,7 +244,7 @@ GameObject:
   - 4: {fileID: 609459890}
   - 114: {fileID: 609459889}
   m_Layer: 0
-  m_Name: Camera Holder
+  m_Name: Flight Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -248,7 +261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3479f566e362142deac222bd1f32bf42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.1
+  speed: 0.2
   steeringWheel: {fileID: 811999158}
   ground: {fileID: 35836706}
 --- !u!4 &609459890
